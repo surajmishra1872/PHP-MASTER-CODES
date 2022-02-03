@@ -1,0 +1,94 @@
+<?php
+echo 'This is Suraj Mishra Terminal';
+echo PHP_EOL;
+echo 'The Suraj Mishra Framework : Version 1.x';
+echo PHP_EOL;
+$commands=[
+'--help' => 'This is Help Command',
+'--v' => '1.x',
+'--a'=>'for Addition',
+'--s'=>'for subtraction',
+'--m'=>'for multiplication',
+'--d'=>'for division',
+'--r'=>'for remainder',
+'--serve'=>'Server Lanch',
+];
+echo PHP_EOL;
+foreach($commands as $key => $value){
+	printf("%s\t:\t%s\n",$key,$value);
+}
+$output='Result is:';
+if(isset($argv[1])){
+	$command=$argv[1];
+	echo "\e[H\e[J";
+	switch($command){
+		case '--v':
+      			$output='1.x';
+      		break;
+		case '--a':
+      			$x = readline('Enter a Number 1:');
+			$y = readline('Enter a Number 2:');
+			$output = $x+$y;
+      		break;
+		case '--help':
+			echo "I can help you.\nAre you forgate commands y/n:";
+			$x=readline(' ');
+			switch($x)
+			{
+				case 'y':
+					$commands=[
+					'--help' => 'This is Help Command',
+					'--v' => '1.x',
+					'--a'=>'for Addition',
+					'--s'=>'for subtraction',
+					'--m'=>'for multiplication',
+					'--d'=>'for division',
+					'--r'=>'for remainder',
+					];
+					echo PHP_EOL;
+					foreach($commands as $key => $value){
+					printf("%s\t:\t%s\n",$key,$value);
+					}
+				break;
+				case 'n':
+					echo "No Problme Thank You";	
+				break;
+			}
+			break;
+		case '--s':
+			$x=readline("Enter 1st Number:");
+			$y=readline("Enter 2nd Number");
+			$output=$x-$y;
+			break;
+
+		case '--m':
+			$x=readline("Enter 1st Number:");
+			$y=readline("Enter 2nd Number");
+			$output=$x*$y;
+			break;
+		case '--d':
+			$x=readline("Enter 1st Number:");
+			$y=readline("Enter 2nd Number");
+			$output=$x/$y;
+			break;
+		case '--r':
+			$x=readline("Enter 1st Number:");
+			$y=readline("Enter 2nd Number");
+			$output=$x%$y;
+			break;
+	                case '--serve':
+			system( "php -S localhost:8000");
+			break;
+		default:
+			$output='Invalid Command Supplied';
+		break;
+	}
+}
+
+echo $output;
+
+
+
+
+
+

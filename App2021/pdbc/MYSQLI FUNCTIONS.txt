@@ -1,0 +1,24 @@
+PHP mysqli_error() 
+************************
+function returns an string value representing the description of the error from the last MySQLi function call. 
+If there are no errors this function returns an empty string.
+
+
+mysqli_connect_error()
+*******************************
+During the attempt to connect to a MySQL server, if an occurs, the mysqli_connect_error() function returns the description
+ of the error occurred (during the last connect call).
+
+Syntax
+mysqli_connect_error()
+Parameters
+This method doesn't accept any parameters.
+
+Syntax
+mysqli_error($con)
+
+Parameter
+---------------
+con(Mandatory)
+
+This is an object representing a connection to MySQL Server.
